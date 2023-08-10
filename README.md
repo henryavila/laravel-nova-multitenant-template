@@ -10,6 +10,8 @@ This template provide a ready to start app with the following features and techn
     - https://github.com/spatie/browsershot
     - https://github.com/jbroadway/urlify
     - https://github.com/vinkla/hashids
+    - https://github.com/vyuldashev/nova-permission
+    - https://github.com/bolechen/nova-activitylog
   - With this customizations
     - Nova resources on `Resources` directory and files with `Resource` suffix
     - Allow custom ordering per Nova Resource using the property `$orderBy = ['name' => 'asc'];`
@@ -40,7 +42,9 @@ This template provide a ready to start app with the following features and techn
                 ->inline('filename.pdf');  }
         ```
     - Traits
-      - [UseHashId.php](app/Traits/UseHashId.php), for models (https://github.com/vinkla/hashids)
+      - [UseHashId(app/Traits/UseHashId.php), for models (https://github.com/vinkla/hashids)
+      - [DefaultModelFunctions](app/Traits/DefaultModelFunctions.php) default function to all models, 
+      like log all changes in all models
 
      
 - [Vue 3](https://vuejs.org/guide) with (by [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#breeze-and-inertia) and [InertiJs](https://inertiajs.com/)) with
@@ -56,7 +60,6 @@ This template provide a ready to start app with the following features and techn
 ----
 
 
-- permission
 - email tracking
 - multi tentant 
 
@@ -95,13 +98,27 @@ php artisan nova:user
 For mor information about official Nova customization, consult the [Larave Nova docs](https://nova.laravel.com/docs/installation.html)
 
 ---
-### Custom content
+## Custom content
 - By default, just **superAdmin** users can access nova outside environment.
   See [docs](https://nova.laravel.com/docs/installation.html#authorizing-access-to-nova) to change dhis logic. See [app/Models/User.php](app/Models/User.php) to change de `isSuperAdmin()` logic.
 
 - To customize the menu, edit the files [app/nova/Menus/UserMenu.php](app/nova/Menus/UserMenu.php) and [app/nova/Menus/MainMenu.php](app/nova/Menus/MainMenu.php)
 
----
+
+
+## Spatie Permission
+We use https://github.com/vyuldashev/nova-permission to manage Spatie Permission.
+Some customization was added to [vyuldashev/nova-permission](https://github.com/vyuldashev/nova-permission), 
+allowing to add date limit to permission. After the end date, the permission will be automatically removed 
+
+## Resource Access Permission
+Laravel Nova uses [Policy](https://nova.laravel.com/docs/resources/authorization.html) to define if the user can access a resource.
+This template grant access to all resources to a user if:
+- he is a `superAdmin` [see isSuperAdmin() method](app/Models/User.php) AND
+- The policy return no content
+
+The rest, folows the default [Laravel Nova Authorization](https://nova.laravel.com/docs/resources/authorization.html) logic
+
 
 
 # Test

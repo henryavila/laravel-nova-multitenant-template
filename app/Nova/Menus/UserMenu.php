@@ -13,7 +13,7 @@ class UserMenu
         return [
             MenuItem::make(
                 __('Perfil'),
-                '/resources/users/'.auth()->user()->getKey()
+                '/resources/users/'.auth()->user()?->getKey()
             ), ];
     }
 }
