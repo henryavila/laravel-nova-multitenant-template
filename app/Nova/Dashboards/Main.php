@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Nova\Dashboards;
 
 use Laravel\Nova\Cards\Help;

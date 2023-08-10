@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -14,7 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $name
  * @property string $email
  * @property string $password
- * @property boolean $is_super_admin
+ * @property bool $is_super_admin
  * @property Carbon $email_verified_at
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -42,7 +44,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-	    'is_super_admin'
+        'is_super_admin',
     ];
 
     /**
@@ -53,11 +55,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-	    'is_super_admin' => 'boolean'
+        'is_super_admin' => 'boolean',
     ];
 
-	public function isSuperAdmin(): bool
-	{
-		return $this->is_super_admin === true;
-	}
+    public function isSuperAdmin(): bool
+    {
+        return $this->is_super_admin === true;
+    }
 }

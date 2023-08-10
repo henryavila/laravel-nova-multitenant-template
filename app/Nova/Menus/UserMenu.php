@@ -8,12 +8,12 @@ use NormanHuth\NovaMenu\MenuItem;
 
 class UserMenu
 {
-	public static function getMenu(): array
-	{
-		return [
-			MenuItem::make(
-				__('Perfil'),
-				'/resources/users/'.auth()->user()->getKey()
-			),];
-	}
+    public static function getMenu(): array
+    {
+        return [
+            MenuItem::make(
+                __('Perfil'),
+                '/resources/users/'.auth()->user()->getKey()
+            ), ];
+    }
 }

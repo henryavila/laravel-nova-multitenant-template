@@ -22,17 +22,17 @@ trait UseHashId
     {
         $idArray = Hashids::decode($hashId);
 
-	    if (!is_array($idArray)) {
-		    abort(404);
-	    }
+        if (! is_array($idArray)) {
+            abort(404);
+        }
 
         $id = reset($idArray);
 
-		if ($id === false) {
-			abort(404);
-		}
+        if ($id === false) {
+            abort(404);
+        }
 
-		return $id;
+        return $id;
     }
 
     /**

@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
 use App\Models\User;
-use App\Nova\Menus\CustomMainMenu;
 use App\Nova\Menus\MainMenu;
 use App\Nova\Menus\UserMenu;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Menu\Menu;
 use Laravel\Nova\Nova;
@@ -18,22 +18,20 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot(): void
     {
-	    parent::boot();
+        parent::boot();
 
-	    Nova::withBreadcrumbs();
+        Nova::withBreadcrumbs();
 
-	    MenuFilter::activate('top')
-	              ->placeholder(__('Buscar no menu'));
+        MenuFilter::activate('top')
+            ->placeholder(__('Buscar no menu'));
 
-	    Nova::mainMenu(fn (Request $request, Menu $menu) => MainMenu::getMenu());
-	    Nova::userMenu(fn (Request $request, Menu $menu) => UserMenu::getMenu());
+        Nova::mainMenu(fn (Request $request, Menu $menu) => MainMenu::getMenu());
+        Nova::userMenu(fn (Request $request, Menu $menu) => UserMenu::getMenu());
 
-	    Nova::footer(fn($request) => view('partials.footer')->render());
+        Nova::footer(fn ($request) => view('partials.footer')->render());
     }
 
     /**
@@ -44,27 +42,23 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function routes()
     {
         Nova::routes()
-                ->withAuthenticationRoutes()
-                ->withPasswordResetRoutes()
-                ->register();
+            ->withAuthenticationRoutes()
+            ->withPasswordResetRoutes()
+            ->register();
     }
 
     /**
      * Register the Nova gate.
      *
      * This gate determines who can access Nova in non-local environments.
-     *
-     * @return void
      */
     protected function gate(): void
     {
-        Gate::define('viewNova', fn(User $user) => $user->isSuperAdmin());
+        Gate::define('viewNova', fn (User $user) => $user->isSuperAdmin());
     }
 
     /**
      * Get the dashboards that should be listed in the Nova sidebar.
-     *
-     * @return array
      */
     protected function dashboards(): array
     {
@@ -75,13 +69,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 
     /**
      * Get the tools that should be listed in the Nova sidebar.
-     *
-     * @return array
      */
     public function tools(): array
     {
         return [
-	        \Laravel\Nova\LogViewer\LogViewer::make(),
+            \Laravel\Nova\LogViewer\LogViewer::make(),
 
         ];
     }
