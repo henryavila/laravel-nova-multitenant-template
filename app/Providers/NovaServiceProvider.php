@@ -1,0 +1,98 @@
+<?php
+
+namespace App\Providers;
+
+use App\Models\User;
+use App\Nova\Menus\CustomMainMenu;
+use App\Nova\Menus\MainMenu;
+use App\Nova\Menus\UserMenu;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Menu\Menu;
+use Laravel\Nova\Nova;
+use Laravel\Nova\NovaApplicationServiceProvider;
+use NormanHuth\NovaMenu\Services\MenuFilter;
+
+class NovaServiceProvider extends NovaApplicationServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(): void
+    {
+	    parent::boot();
+
+	    Nova::withBreadcrumbs();
+
+	    MenuFilter::activate('top')
+	              ->placeholder(__('Buscar no menu'));
+
+	    Nova::mainMenu(fn (Request $request, Menu $menu) => MainMenu::getMenu());
+	    Nova::userMenu(fn (Request $request, Menu $menu) => UserMenu::getMenu());
+
+	    Nova::footer(fn($request) => view('partials.footer')->render());
+    }
+
+    /**
+     * Register the Nova routes.
+     *
+     * @return void
+     */
+    protected function routes()
+    {
+        Nova::routes()
+                ->withAuthenticationRoutes()
+                ->withPasswordResetRoutes()
+                ->register();
+    }
+
+    /**
+     * Register the Nova gate.
+     *
+     * This gate determines who can access Nova in non-local environments.
+     *
+     * @return void
+     */
+    protected function gate(): void
+    {
+        Gate::define('viewNova', fn(User $user) => $user->isSuperAdmin());
+    }
+
+    /**
+     * Get the dashboards that should be listed in the Nova sidebar.
+     *
+     * @return array
+     */
+    protected function dashboards(): array
+    {
+        return [
+            new \App\Nova\Dashboards\Main,
+        ];
+    }
+
+    /**
+     * Get the tools that should be listed in the Nova sidebar.
+     *
+     * @return array
+     */
+    public function tools(): array
+    {
+        return [
+	        \Laravel\Nova\LogViewer\LogViewer::make(),
+
+        ];
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
