@@ -6,7 +6,7 @@ namespace App\Helpers;
 
 use Illuminate\Support\Str;
 
-class Meta
+class MetaTagsHelper
 {
     private static array $meta = [];
 

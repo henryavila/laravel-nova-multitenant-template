@@ -16,29 +16,29 @@ This template provide a ready to start app with the following features and techn
     - Custom Menu (with search and css customization)
     - Custom footer
     - Helpers
-      - AppVersionHelper
-      - FileHelperHelper
-      - MetaTagsHelper (SEO)
-      - TextHelper
-      - Services
-        - FileFromDbService (serve file loaded from DB) 
-        - Wrapper to Browsershot
-          ```php
-          use App\Services\PdfConverter;
+      - [AppVersionHelper](app/Helpers/AppVersion.php)
+      - [FileHelperHelper](app/Helpers/FileHelper.php)
+      - [MetaTagsHelper (SEO)](app/Helpers/MetaTagsHelper.php)
+      - [TextHelper](app/Helpers/TextHelper.php)
+    - Services
+      - [FileFromDbService (serve file loaded from DB)](app/Services/FileFromDbService.php) 
+      - [Wrapper to Browsershot](app/Services/PdfConverter.php)
+        ```php
+        use App\Services\PdfConverter;
           
-          public function __construct(public PdfConverter $pdfConverter)
-          {
-          }
+        public function __construct(public PdfConverter $pdfConverter)
+        {
+        }
             
-            public function generatePdfFromViw()
-            {
-              // this will generate the pdf from a blade view and render it in the browser
-              $this->pdfConverter
-                  ->loadView('path.to-view', [
-                      //... data to view
-                  ])
-                  ->inline('filename.pdf');  }
-          ```
+          public function generatePdfFromViw()
+          {
+            // this will generate the pdf from a blade view and render it in the browser
+            $this->pdfConverter
+                ->loadView('path.to-view', [
+                    //... data to view
+                ])
+                ->inline('filename.pdf');  }
+        ```
     - Traits
       - [UseHashId.php](app/Traits/UseHashId.php), for models (https://github.com/vinkla/hashids)
 
@@ -57,7 +57,6 @@ This template provide a ready to start app with the following features and techn
 
 
 - permission
-- github action
 - email tracking
 - multi tentant 
 
@@ -77,6 +76,10 @@ update the `.env` file, setting your larva nova license key:
 ```dotenv
 NOVA_LICENSE_KEY=PUT_YOUR_NOVA_LICENSE_KEY_HERE
 ```
+
+Create the following [GitHub secrets](https://docs.github.com/pt/actions/security-guides/encrypted-secrets)
+- LARAVEL_NOVA_USERNAME
+- LARAVEL_NOVA4_TOKEN
 
 And then run
 ```bash

@@ -6,7 +6,7 @@ namespace App\Helpers;
 
 use JetBrains\PhpStorm\Pure;
 
-class Text
+class TextHelper
 {
     #[Pure]
     public static function maskEmailAddress(string $email): ?string
