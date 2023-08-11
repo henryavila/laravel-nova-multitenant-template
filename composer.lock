@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9eaeeedcd5631dc4a03525bd06200ef3",
+    "content-hash": "0692bbf9c72357a18600b11bc714b2cf",
     "packages": [
         {
             "name": "bolechen/nova-activitylog",
-            "version": "v0.4.0",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bolechen/nova-activitylog.git",
-                "reference": "0c620cbea70a2dde5aecd891a2e38eb7f5a999bd"
+                "reference": "f21c24f27de02dd4bfffaa81c5a43b23d0bf8c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bolechen/nova-activitylog/zipball/0c620cbea70a2dde5aecd891a2e38eb7f5a999bd",
-                "reference": "0c620cbea70a2dde5aecd891a2e38eb7f5a999bd",
+                "url": "https://api.github.com/repos/bolechen/nova-activitylog/zipball/f21c24f27de02dd4bfffaa81c5a43b23d0bf8c91",
+                "reference": "f21c24f27de02dd4bfffaa81c5a43b23d0bf8c91",
                 "shasum": ""
             },
             "require": {
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bolechen/nova-activitylog/issues",
-                "source": "https://github.com/bolechen/nova-activitylog/tree/v0.4.0"
+                "source": "https://github.com/bolechen/nova-activitylog/tree/v0.4.1"
             },
-            "time": "2022-04-07T09:46:45+00:00"
+            "time": "2023-08-11T11:10:13+00:00"
         },
         {
             "name": "brick/math",

@@ -7,8 +7,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "bolechen/nova-activitylog": "^0.4.0",
-        "guzzlehttp/guzzle": "^7.2",
+        "bolechen/nova-activitylog": "^0.4.1",
+        "guzzlehttp/guzzle": "^7.7",
         "hashids/hashids": "^5.0",
         "inertiajs/inertia-laravel": "^0.6.8",
         "jbroadway/urlify": "^1.2",
