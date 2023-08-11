@@ -22,7 +22,8 @@
         "tightenco/ziggy": "^1.0",
         "titasgailius/search-relations": "^2.0",
         "voku/stringy": "^6.5",
-        "vyuldashev/nova-permission": "^3.2"
+        "vyuldashev/nova-permission": "^3.2",
+        "henryavila/laravel-nova-changelog": "^1.0.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

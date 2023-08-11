@@ -8,8 +8,11 @@ use App\Models\User;
 use App\Nova\Menus\MainMenu;
 use App\Nova\Menus\UserMenu;
 use App\Nova\Resources\Security\PermissionResource;
+use Bolechen\NovaActivitylog\NovaActivitylog;
+use HenryAvila\Changelog\Changelog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\LogViewer\LogViewer;
 use Laravel\Nova\Menu\Menu;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -77,12 +80,16 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 		$isSuperAdmin = auth()->user()?->isSuperAdmin() === true;
 
 		return [
-			\Laravel\Nova\LogViewer\LogViewer::make(),
-			NovaPermissionTool::make()->canSee(fn() => $isSuperAdmin)
+			LogViewer::make(),
+
+			new Changelog(),
+
+			(new NovaActivitylog())
+				->canSee(fn() => $isSuperAdmin),
+
+			NovaPermissionTool::make()
+			                  ->canSee(fn() => $isSuperAdmin)
 			                  ->permissionResource(PermissionResource::class),
-
-			new \Bolechen\NovaActivitylog\NovaActivitylog(),
-
 		];
 	}
 

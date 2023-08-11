@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "893f37d6f3a449bf365bd3d929505527",
+    "content-hash": "9eaeeedcd5631dc4a03525bd06200ef3",
     "packages": [
         {
             "name": "bolechen/nova-activitylog",
@@ -1560,6 +1560,52 @@
             "time": "2023-02-23T15:00:54+00:00"
         },
         {
+            "name": "henryavila/laravel-nova-changelog",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/henryavila/laravel-nova-changelog.git",
+                "reference": "7f4758cc764578e423d7e2940a0f08f6a646b111"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/henryavila/laravel-nova-changelog/zipball/7f4758cc764578e423d7e2940a0f08f6a646b111",
+                "reference": "7f4758cc764578e423d7e2940a0f08f6a646b111",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HenryAvila\\Changelog\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HenryAvila\\Changelog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool that display the content of the changelog file",
+            "keywords": [
+                "changelog",
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/henryavila/laravel-nova-changelog/issues",
+                "source": "https://github.com/henryavila/laravel-nova-changelog/tree/v1.0.0"
+            },
+            "time": "2023-08-11T10:26:52+00:00"
+        },
+        {
             "name": "inertiajs/inertia-laravel",
             "version": "v0.6.9",
             "source": {
@@ -1988,17 +2034,17 @@
         },
         {
             "name": "laravel/nova",
-            "version": "4.27.7",
+            "version": "4.27.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:laravel/nova.git",
-                "reference": "a1ae2195dcd156eb642038c34c7c147ff4cee6f3"
+                "reference": "1f1bc023213e9defc0b4fb4e5cf244ec63b216ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-a1ae2195dcd156eb642038c34c7c147ff4cee6f3-zip-0d4ec7.zip",
-                "reference": "a1ae2195dcd156eb642038c34c7c147ff4cee6f3",
-                "shasum": "2e63da323082ddb8cc0fedc80dc9c653378b04cc"
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-1f1bc023213e9defc0b4fb4e5cf244ec63b216ea-zip-e0b4db.zip",
+                "reference": "1f1bc023213e9defc0b4fb4e5cf244ec63b216ea",
+                "shasum": "83a0ff14a3eec76c638a77f5c05de3ae83ab872d"
             },
             "require": {
                 "brick/money": "^0.5.0|^0.6.0|^0.7.0|^0.8.0",
@@ -2096,9 +2142,9 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/laravel/nova/tree/v4.27.7"
+                "source": "https://github.com/laravel/nova/tree/v4.27.10"
             },
-            "time": "2023-08-10T02:51:47+00:00"
+            "time": "2023-08-11T04:57:43+00:00"
         },
         {
             "name": "laravel/nova-log-viewer",
@@ -3518,16 +3564,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.15.0",
+            "version": "v4.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "907a2ff042741b1f25b6e636d18ce9d7fc4c8333"
+                "reference": "ef5396bfd44b3dfa092e78458966d25c7a2c931a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/907a2ff042741b1f25b6e636d18ce9d7fc4c8333",
-                "reference": "907a2ff042741b1f25b6e636d18ce9d7fc4c8333",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/ef5396bfd44b3dfa092e78458966d25c7a2c931a",
+                "reference": "ef5396bfd44b3dfa092e78458966d25c7a2c931a",
                 "shasum": ""
             },
             "require": {
@@ -3595,7 +3641,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.15.0"
+                "source": "https://github.com/openspout/openspout/tree/v4.15.1"
             },
             "funding": [
                 {
@@ -3607,7 +3653,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-19T07:48:22+00:00"
+            "time": "2023-08-11T08:32:26+00:00"
         },
         {
             "name": "paragonie/random_compat",

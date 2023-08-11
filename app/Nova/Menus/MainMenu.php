@@ -7,6 +7,7 @@ namespace App\Nova\Menus;
 use App\Nova\Dashboards\Main;
 use App\Nova\Resources\Security\PermissionResource;
 use App\Nova\Resources\UserResource;
+use HenryAvila\Changelog\Changelog;
 use Laravel\Nova\LogViewer\LogViewer;
 use NormanHuth\NovaMenu\MenuItem;
 use NormanHuth\NovaMenu\MenuSection;
@@ -65,6 +66,8 @@ class MainMenu
 			(LogViewer::make())
 				->menu($request)
 				->canSee(fn() => $isSuperAdmin),
+
+			Changelog::make()->menu($request),
 		];
 	}
 
